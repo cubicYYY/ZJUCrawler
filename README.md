@@ -2,7 +2,7 @@
 
 ## 介绍
 浙江大学学生教师信息爬虫，从教务网、查老师获取对应信息。可以结合QQ机器人等食用。  
-该包目前集成了两个爬虫：    
+该包目前集成了两个爬虫：  
 - 学生个人信息爬虫
   - 加权均绩
   - 加权四分制均绩（出国，旧）
@@ -24,11 +24,20 @@ TODO
 
 ## 使用示例
 
+### 导入
+```python
+import zjucrawler
+# or:
+from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
+from zjucrawler import zju # Fetch from official websites
+```
 ### 教师
 ```python
+import asyncio
+from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
 async def main():
     teacher = input("teacher ID >>>")
-    print(await get_teacher_info(int(teacher))) # 获取教师信息
+    print(await chalaoshi.get_teacher_info(int(teacher))) # 获取教师信息
     # search_teachers 通过教师姓名/缩写获取教师列表
     # get_course_info 获取课程平均绩点、标准差
 loop = asyncio.get_event_loop()
@@ -36,10 +45,12 @@ loop.run_until_complete(main())
 ```
 ### 学生
 ```python
+import asyncio
+from zjucrawler import zju # Fetch from official websites
 async def main():
     username = input("username>>>")
     pwd = input("pwd>>>")
-    test = Fetcher(username, pwd, simulated=False) # simulated指定是否模拟浏览器进行登录
+    test = zju.Fetcher(username, pwd, simulated=False) # simulated指定是否模拟浏览器进行登录
     print(await test.get_GPA()) # 获取全科均绩，不含弃修
     # get_avg_score 获取加权平均百分制成绩
     # get_abroad_GPA_old 出国均绩旧（4分制） -2021级
@@ -53,4 +64,4 @@ loop.run_until_complete(main())
 ```
 ## 注意事项
 确保包中含有`security.js`.  
-由于一些众所周知的神秘因素可能无法使用查老师（需要内网），请自行解决:)
+由于一些众所周知的神秘因素可能无法使用查老师（需要内网），请自行解决:)  

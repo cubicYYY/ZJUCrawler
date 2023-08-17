@@ -1,5 +1,4 @@
 # A simple library for fetching data from zju school website
-#! TODO: Using BeautifulSoup instead of native Regex matching
 # TODO: school official site monitoring
 # TODO: deadlines query
 # TODO: school activities announcement/subscription
