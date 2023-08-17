@@ -1,13 +1,15 @@
 # fetcher from chalaoshi
 # TODO: student comments fetching
 import asyncio
-from functools import wraps
 import json
-import aiohttp
-import re
 import random
+import re
 from dataclasses import dataclass, field
+from functools import wraps
 from typing import Optional
+
+import aiohttp
+
 CHALAOSHI_URL = "https://chalaoshi.2799web.com"
 CHALAOSHI_API_URL = "https://api.chalaoshi.2799web.com"
 HEADER_POOL = ["Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",

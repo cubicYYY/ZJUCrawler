@@ -17,7 +17,7 @@
 
 ## 安装
 ### PyPi
-TODO
+`pip install zjucrawler`
 
 ### 手动安装
 下载后进入`setup.py`所在文件夹执行`pip install .`即可。  

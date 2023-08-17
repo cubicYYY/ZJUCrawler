@@ -6,27 +6,29 @@
 # TODO: McDonald tracking
 #! TODO: use copyreg instead of native pickle
 import asyncio
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from collections import namedtuple
-from functools import wraps
-from dataclasses import dataclass
-from itertools import chain
-from datetime import datetime, timezone
-from weakref import WeakKeyDictionary
-import pytz
-import aiohttp
-import execjs
-import pickle
+import bisect
 import json
 import os
+import pickle
 import re
-import bisect
+from collections import namedtuple
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from functools import wraps
+from itertools import chain
+from typing import Callable, Iterable, Iterator, Optional, Tuple
+from weakref import WeakKeyDictionary
+
+import aiohttp
+import execjs
+import pytz
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from sortedcontainers import SortedDict
-from typing import Iterable, Optional, Iterator, Callable, Tuple
+from webdriver_manager.chrome import ChromeDriverManager
+
 PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_HEADERS = {
