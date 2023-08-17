@@ -33,10 +33,12 @@ from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
 from zjucrawler import zju # Fetch from official websites
 ```
 ### 教师
+
 ```python
 import asyncio
 from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
 async def main():
+
     teacher = input("teacher ID >>>")
     print(await chalaoshi.get_teacher_info(int(teacher))) # 获取教师信息
     # search_teachers 通过教师姓名/缩写获取教师列表
@@ -45,10 +47,12 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
 ### 学生
+
 ```python
 import asyncio
 from zjucrawler import zju # Fetch from official websites
 async def main():
+
     username = input("username>>>")
     pwd = input("pwd>>>")
     test = zju.Fetcher(username, pwd, simulated=False) # simulated指定是否模拟浏览器进行登录
@@ -64,5 +68,6 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
 ## 注意事项
+
 确保包中含有`security.js`.  
 由于一些众所周知的神秘因素可能无法使用查老师（需要内网），请自行解决:)  
