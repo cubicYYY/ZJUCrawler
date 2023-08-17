@@ -1,5 +1,4 @@
 # fetcher from chalaoshi
-# TODO:!! Using BeautifulSoup instead of native Regex matching
 # TODO: student comments fetching
 import asyncio
 from functools import wraps

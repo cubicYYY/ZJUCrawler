@@ -2,7 +2,7 @@
 # TODO: school official site monitoring
 # TODO: deadlines query
 # TODO: school activities announcement/subscription
-# Non-firstplace requirements
+### Non-firstplace requirements ###
 # TODO: McDonald tracking
 #! TODO: use copyreg instead of native pickle
 import asyncio
@@ -317,7 +317,7 @@ class Fetcher(object):
     # Decorators
 
     @staticmethod
-    # FIXME: The cache may be out-dated and need to be updated as some points
+    # FIXME: The cache may be out-dated and need to be updated
     def login_acquired(func):
         @wraps(func)
         async def wrapper(self: 'Fetcher', *args, **kwargs):  # TODO: Reconstruction needed
@@ -611,14 +611,6 @@ class Fetcher(object):
     async def get_avg_score(self) -> float:
         credits_sum = 0
         grade_points_sum_weighted = 0.0
-        def get_abroad_point(score: int|str):
-            score = int(score)
-            pos = SCORE_MAP.bisect(score)
-            if pos!=0:
-                return SCORE_MAP.values()[pos-1]
-            else:
-                raise ValueError("Invalid score when converting to grade point")
-        
         for course in await self.get_grades():
             if self.__class__.is_float(course.score, course.credit, course.grade_point):
                 assert course.credit and course.grade_point
