@@ -39,7 +39,6 @@ from zjucrawler import zju # Fetch from official websites
 import asyncio
 from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
 async def main():
-
     teacher = input("teacher ID >>>")
     print(await chalaoshi.get_teacher_info(int(teacher))) # 获取教师信息
     # search_teachers 通过教师姓名/缩写获取教师列表
@@ -54,7 +53,6 @@ loop.run_until_complete(main())
 import asyncio
 from zjucrawler import zju # Fetch from official websites
 async def main():
-
     username = input("username>>>")
     pwd = input("pwd>>>")
     test = zju.Fetcher(username, pwd, simulated=False) # simulated指定是否模拟浏览器进行登录
