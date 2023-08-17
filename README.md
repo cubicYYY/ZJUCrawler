@@ -32,6 +32,7 @@ import zjucrawler
 from zjucrawler import chalaoshi # Chalaoshi website(unofficial)
 from zjucrawler import zju # Fetch from official websites
 ```
+
 ### 教师
 
 ```python
@@ -46,6 +47,7 @@ async def main():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
+
 ### 学生
 
 ```python
@@ -67,6 +69,7 @@ async def main():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
+
 ## 注意事项
 
 确保包中含有`security.js`.  
